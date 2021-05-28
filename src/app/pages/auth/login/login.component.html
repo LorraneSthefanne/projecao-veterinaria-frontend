@@ -1,0 +1,21 @@
+<div class="login-container p-d-flex p-jc-center">
+  <div class="p-md-4 p-sm-12 p-as-center">
+    <form class="p-grid" [formGroup]="form" (ngSubmit)="acessar()">
+      <div class="p-col-12 p-sm-12">
+        <label for="usuario">Usuário</label>
+        <input pInputText id="usuario" type="text" class="p-col-12"
+               formControlName="usuario"
+               [ngClass]="submitted && usuario.usuario.errors ? 'ng-invalid ng-dirty' : ''"/>
+      </div>
+      <div class="p-col-12 p-sm-12">
+        <label for="usuario">Senha</label>
+        <input pInputText id="senha" type="password" class="p-col-12"
+               formControlName="senha"
+               [ngClass]="submitted && usuario.senha.errors ? 'ng-invalid ng-dirty' : ''"/>
+      </div>
+      <div class="p-col-12 p-sm-12">
+        <button pButton type="submit" class="p-col-12" label="Acessar"></button>
+      </div>
+    </form>
+  </div>
+</div>

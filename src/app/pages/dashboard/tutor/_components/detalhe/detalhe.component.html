@@ -1,0 +1,32 @@
+<app-card [titulo]="'1. Informações'"  *ngIf="alunoSelecionado">
+  <app-formulario-aluno [isDetalhe]="true"
+                        [desativarCadastro]="false"
+                        (salvarEvent)="salvar($event)"></app-formulario-aluno>
+</app-card>
+
+<app-card [titulo]="'2. Animal'" class="p-mt-2"  *ngIf="alunoSelecionado">
+  <div class="p-col-12 p-sm-12 p-md-4 p-md-offset-8" *ngIf="!showFormAnimal">
+    <button
+      type="button"
+      pButton
+      pRipple
+      label="Adicionar"
+      class="p-col-12 p-button"
+      (click)="adicionar()"
+    ></button>
+  </div>
+  <div class="p-col-12 p-sm-12 p-md-4 p-md-offset-8" *ngIf="showFormAnimal">
+    <button
+      type="button"
+      pButton
+      pRipple
+      label="Cancelar"
+      class="p-col-12 p-button-secondary"
+      (click)="cancelar()"
+    ></button>
+  </div>
+  <app-formulario-animal [isDetalhe]="isDetalhe" *ngIf="showFormAnimal"
+                         (salvarEvent)="salvarPet($event)"></app-formulario-animal>
+  <app-tabela-animal (eventExcluir)="excluirPet($event)" (eventDetalhe)="detalhePet($event)" [pets]="pets"
+                     *ngIf="!showFormAnimal"></app-tabela-animal>
+</app-card>

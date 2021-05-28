@@ -1,0 +1,36 @@
+<block-ui>
+  <div class="container">
+    <p-toast position="top-right"></p-toast>
+    <nav *ngIf="isLogado | async">
+      <div
+        class="p-d-flex p-ai-center p-jc-md-between p-jc-center"
+        style="height: 100%"
+      >
+        <a class="p-ml-md-6"
+           [routerLink]="['dashboard']"
+           style="font-weight: 800; color: #f5f6fa;text-decoration: none; cursor: pointer">VETERINARIA</a>
+        <a
+          (click)="sair()"
+          class="p-d-none p-d-md-flex p-mr-md-6"
+          style="color: #ffffff; text-decoration: none; cursor: pointer"
+        ><i class="pi pi-power-off" style="font-size: 20px"></i>
+        </a>
+      </div>
+    </nav>
+    <main>
+      <div *ngIf="isLogado | async" class="p-grid p-fluid p-ai-center p-mb-5">
+        <div class="p-col-2 p-sm-2 p-md-1 p-d-flex p-jc-center">
+          <button
+            pButton
+            (click)="voltar()"
+            type="button"
+            icon="pi pi-arrow-left"
+            class="p-button-rounded p-button-secondary"
+            pTooltip="Voltar"
+          ></button>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</block-ui>

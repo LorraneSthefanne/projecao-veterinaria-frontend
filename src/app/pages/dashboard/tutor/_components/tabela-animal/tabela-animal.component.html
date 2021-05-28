@@ -1,0 +1,33 @@
+<p-table [value]="pets" [paginator]="true" [rows]="tamanho" [showCurrentPageReport]="true"
+         [(first)]="pagina"
+         styleClass="p-datatable-responsive-demo"
+         [scrollable]="true"
+         currentPageReportTemplate="Apresentando {first} até {last} de {totalRecords} Registros"
+         [rowsPerPageOptions]="[5, 10,25,50]">
+  <ng-template pTemplate="colgroup" let-columns>
+    <colgroup>
+      <col style="width:250px">
+      <col style="width:250px">
+      <col style="width:250px">
+    </colgroup>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nome</th>
+      <th>Data de nascimento</th>
+      <th>Ação</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-pet>
+    <tr>
+      <td><p class="overflow ellipsis">{{pet.nome}}</p></td>
+      <td>{{pet.dataNascimento}}</td>
+      <td>
+        <div class="p-d-inline">
+          <button (click)="detalhe(pet)" class="p-button-warning" pButton type="button" icon="pi pi-eye" iconPos="left"></button>
+          <button (click)="excluir(pet)" class="p-ml-2 p-button-danger" pButton type="button" icon="pi pi-trash" iconPos="left"></button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

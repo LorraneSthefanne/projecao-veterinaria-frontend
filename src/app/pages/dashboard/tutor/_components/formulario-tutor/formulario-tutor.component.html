@@ -1,0 +1,53 @@
+<form class="p-m-2" [formGroup]="form" (ngSubmit)="cadastrar()">
+  <div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-4 p-sm-12">
+      <label>Nome</label>
+      <input id="nome" pInputText class="p-mb-2 p-col-12" type="text" formControlName="nome"
+             [ngClass]="submitted && alunoControl.nome?.errors ? 'ng-invalid ng-dirty' : ''"/>
+    </div>
+    <div class="p-col-12 p-md-4 p-sm-12">
+      <label>Data de nascimento</label>
+      <p-calendar
+        inputId="icon"
+        id="dtNascimento"
+        [showIcon]="true"
+        dateFormat="dd/mm/yy"
+        [dataType]="'string'"
+        formControlName="dataNascimento"
+        [ngClass]="submitted && alunoControl.dataNascimento?.errors ? 'ng-invalid ng-dirty' : ''"
+      ></p-calendar>
+    </div>
+    <div class="p-col-12 p-md-4 p-sm-12">
+      <label for="documento">Documento</label>
+      <input
+        id="documento"
+        type="text"
+        pInputText
+        class="p-mb-2 p-col-12"
+        [mask]="'000.000.000-00'"
+        formControlName="documento"
+        [ngClass]="submitted && alunoControl.documento?.errors ? 'ng-invalid ng-dirty' : ''"
+      />
+    </div>
+    <div class="p-col-12 p-md-6 p-sm-12">
+      <label for="telefone">Telefone</label>
+      <input id="telefone" type="text" pInputText [mask]="'(00) 00000-0000'" formControlName="telefone"
+             [ngClass]="submitted && alunoControl.telefone?.errors ? 'ng-invalid ng-dirty' : ''"/>
+    </div>
+    <div class="p-col-12 p-md-6 p-sm-12">
+      <label for="email">E-mail</label>
+      <input id="email" type="text" pInputText formControlName="email"
+             [ngClass]="submitted && alunoControl.email?.errors ? 'ng-invalid ng-dirty' : ''"/>
+    </div>
+    <div class="p-col-12 p-sm-12 p-md-4 p-md-offset-8">
+      <button
+        type="submit"
+        pButton
+        pRipple
+        [label]="isDetalhe ? 'Salvar' : 'Cadastrar'"
+        class="p-col-12 p-button"
+        [disabled]="desativarCadastro"
+      ></button>
+    </div>
+  </div>
+</form>

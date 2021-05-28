@@ -1,0 +1,51 @@
+<form class="p-m-2" [formGroup]="form" (ngSubmit)="salvar()">
+  <div class="p-grid p-fluid">
+    <div class="p-col-12 p-md-4 p-sm-12">
+      <label>Nome</label>
+      <input id="nome" pInputText class="p-mb-2 p-col-12" type="text" formControlName="nome"
+             [ngClass]="submitted && animalControl.nome?.errors ? 'ng-invalid ng-dirty' : ''"/>
+    </div>
+    <div class="p-col-12 p-md-4 p-sm-12">
+      <label>Data de nascimento</label>
+      <p-calendar
+        inputId="icon"
+        id="dtNascimento"
+        [showIcon]="true"
+        dateFormat="dd/mm/yy"
+        [dataType]="'string'"
+        formControlName="dataNascimento"
+        [ngClass]="submitted && animalControl.dataNascimento?.errors ? 'ng-invalid ng-dirty' : ''"
+      ></p-calendar>
+    </div>
+    <div class="p-col-12 p-md-4 p-sm-12">
+      <label for="raca">Raça</label>
+      <input
+        id="raca"
+        type="text"
+        pInputText
+        class="p-mb-2 p-col-12"
+        formControlName="raca"
+        [ngClass]="submitted && animalControl.raca?.errors ? 'ng-invalid ng-dirty' : ''"
+      />
+    </div>
+    <div class="p-col-12 p-md-6 p-sm-12">
+      <label for="especie">Especie</label>
+      <input id="especie" type="text" pInputText formControlName="especie"
+             [ngClass]="submitted && animalControl.especie?.errors ? 'ng-invalid ng-dirty' : ''"/>
+    </div>
+    <div class="p-col-12 p-md-6 p-sm-12">
+      <label for="peso">Peso</label>
+      <input id="peso" type="text" pInputText formControlName="peso"
+             [ngClass]="submitted && animalControl.peso?.errors ? 'ng-invalid ng-dirty' : ''"/>
+    </div>
+    <div class="p-col-12 p-sm-12 p-md-4 p-md-offset-8">
+      <button
+        type="submit"
+        pButton
+        pRipple
+        [label]="isDetalhe ? 'Salvar' : 'Cadastrar'"
+        class="p-col-12 p-button"
+      ></button>
+    </div>
+  </div>
+</form>
